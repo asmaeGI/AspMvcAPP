@@ -1,0 +1,87 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*Start Layout Style*/
+.logo-container {
+    margin-right: 7%;
+}
+.nav-color {
+    background-color: #428bca;
+    border-color: #428bca;
+}
+
+.nav-color .navbar-nav > li > a {
+    color: white;
+}
+.nav-color .navbar-brand {
+    color: white;
+}
+
+/*end Layout Style*/
+/*Start Login Page*/
+.md_title{
+    text-align: center;
+    color: #428bca;
+    padding-bottom: 10%;
+}
+.form-group{
+    color:#428bca;
+}
+.loginPanel {
+    background-color:#f9fcff;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    border-color:#95bde0;
+    border-style: outset;
+    height: auto;
+    width: 400px;
+}
+.loginForm{
+    padding-left: 15%;
+}
+.loginForm .btn-form{
+     padding-top: 10%;
+    padding-left: 30%;
+}
+/*End Login Page*/
+/*Start main Page*/
+.FullPanel 
+{
+    margin-top:5%;
+}
+.TableColab{
+    margin-top:3%;
+
+}
+.TableColab thead{
+    background-color:#c19b4f;
+}
+.pagerStyle{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+/*End Main Page*/

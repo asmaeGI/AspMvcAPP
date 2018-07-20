@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UColaborateur" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUColaborateur_ajouterColab_InputMessage">
+    <wsdl:part name="parameters" element="tns:ajouterColab" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ajouterColab_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ajouterColabResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_afficherColab_InputMessage">
+    <wsdl:part name="parameters" element="tns:afficherColab" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_afficherColab_OutputMessage">
+    <wsdl:part name="parameters" element="tns:afficherColabResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerColaborateurConfirmer_InputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerColaborateurConfirmer" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerColaborateurConfirmer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerColaborateurConfirmerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerColaborateur_InputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerColaborateur" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerColaborateur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerColaborateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_detaillerColaborateur_InputMessage">
+    <wsdl:part name="parameters" element="tns:detaillerColaborateur" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_detaillerColaborateur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:detaillerColaborateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierColborateur_InputMessage">
+    <wsdl:part name="parameters" element="tns:modifierColborateur" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierColborateur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modifierColborateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierColaborateur_InputMessage">
+    <wsdl:part name="parameters" element="tns:modifierColaborateur" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierColaborateur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modifierColaborateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_FileExtension_InputMessage">
+    <wsdl:part name="parameters" element="tns:FileExtension" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_FileExtension_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FileExtensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ExporterColaborateur_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExporterColaborateur" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ExporterColaborateur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExporterColaborateurResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUColaborateur">
+    <wsdl:operation name="ajouterColab">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/ajouterColab" message="tns:IUColaborateur_ajouterColab_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/ajouterColabResponse" message="tns:IUColaborateur_ajouterColab_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="afficherColab">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/afficherColab" message="tns:IUColaborateur_afficherColab_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/afficherColabResponse" message="tns:IUColaborateur_afficherColab_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerColaborateurConfirmer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/supprimerColaborateurConfirmer" message="tns:IUColaborateur_supprimerColaborateurConfirmer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/supprimerColaborateurConfirmerResponse" message="tns:IUColaborateur_supprimerColaborateurConfirmer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerColaborateur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/supprimerColaborateur" message="tns:IUColaborateur_supprimerColaborateur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/supprimerColaborateurResponse" message="tns:IUColaborateur_supprimerColaborateur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="detaillerColaborateur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/detaillerColaborateur" message="tns:IUColaborateur_detaillerColaborateur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/detaillerColaborateurResponse" message="tns:IUColaborateur_detaillerColaborateur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modifierColborateur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierColborateur" message="tns:IUColaborateur_modifierColborateur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/modifierColborateurResponse" message="tns:IUColaborateur_modifierColborateur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modifierColaborateur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierColaborateur" message="tns:IUColaborateur_modifierColaborateur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/modifierColaborateurResponse" message="tns:IUColaborateur_modifierColaborateur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FileExtension">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/FileExtension" message="tns:IUColaborateur_FileExtension_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/FileExtensionResponse" message="tns:IUColaborateur_FileExtension_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExporterColaborateur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/ExporterColaborateur" message="tns:IUColaborateur_ExporterColaborateur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/ExporterColaborateurResponse" message="tns:IUColaborateur_ExporterColaborateur_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUColaborateur" type="tns:IUColaborateur">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ajouterColab">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/ajouterColab" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="afficherColab">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/afficherColab" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="supprimerColaborateurConfirmer">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/supprimerColaborateurConfirmer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="supprimerColaborateur">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/supprimerColaborateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detaillerColaborateur">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/detaillerColaborateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifierColborateur">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/modifierColborateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifierColaborateur">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/modifierColaborateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FileExtension">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/FileExtension" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExporterColaborateur">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/ExporterColaborateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UColaborateur">
+    <wsdl:port name="BasicHttpBinding_IUColaborateur" binding="tns:BasicHttpBinding_IUColaborateur">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfService/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
