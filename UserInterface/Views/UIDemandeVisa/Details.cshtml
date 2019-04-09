@@ -1,0 +1,65 @@
+﻿@model Entities.DemandeVisa
+
+@{ 
+    ViewBag.Title = "Details";
+}
+<div>
+    <h4>Demande Visa</h4>
+    <h3>@ViewBag.test</h3>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Collaborateur", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Colaborateur.Nom) @Html.DisplayFor(model=>model.Colaborateur.Prenom)
+        </dd>
+
+        <dt>
+            @Html.Label("Date", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.Label("Status", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.Label("Date Validite Visa", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateValiditeVisa)
+        </dd>
+
+        <dt>
+            @Html.Label("Date Fin Visa", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFinVisa)
+        </dd>
+
+        <dt>
+            @Html.Label("Observation", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

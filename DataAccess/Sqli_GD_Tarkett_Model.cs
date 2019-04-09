@@ -1,8 +1,7 @@
-namespace DataAccess
+namespace Entities
 {
     using System;
     using System.Data.Entity;
-    using Entities;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
@@ -11,13 +10,17 @@ namespace DataAccess
         public Sqli_GD_Tarkett_Model()
             : base("name=Sqli_GD_Tarkett_Model")
         {
+            Configuration.AutoDetectChangesEnabled = true;
+            Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.ValidateOnSaveEnabled = true;
         }
 
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Colaborateur> Colaborateur { get; set; }
         public virtual DbSet<DemandeVisa> DemandeVisa { get; set; }
         public virtual DbSet<Deplacement> Deplacement { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Utilisateur> Utilisateur { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -46,9 +49,6 @@ namespace DataAccess
                 .IsUnicode(false);
 
             modelBuilder.Entity<Colaborateur>()
-                .Property(e => e.Sexe);
-
-            modelBuilder.Entity<Colaborateur>()
                 .Property(e => e.Login)
                 .IsUnicode(false);
 
@@ -58,11 +58,6 @@ namespace DataAccess
 
             modelBuilder.Entity<Colaborateur>()
                 .HasMany(e => e.DemandeVisa)
-                .WithOptional(e => e.Colaborateur)
-                .HasForeignKey(e => e.IdC);
-
-            modelBuilder.Entity<Colaborateur>()
-                .HasMany(e => e.Deplacement)
                 .WithOptional(e => e.Colaborateur)
                 .HasForeignKey(e => e.IdC);
 
@@ -78,17 +73,10 @@ namespace DataAccess
                 .Property(e => e.Observation)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Utilisateur>()
-                .Property(e => e.Login)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Utilisateur>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Utilisateur>()
-                .Property(e => e.Email)
-                .IsUnicode(false);
+            modelBuilder.Entity<Deplacement>()
+                .HasMany(e => e.Colaborateur)
+                .WithOptional(e => e.Deplacement)
+                .HasForeignKey(e => e.IdD);
         }
     }
 }

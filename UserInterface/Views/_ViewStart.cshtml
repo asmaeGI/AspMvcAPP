@@ -5,5 +5,17 @@
     if (controller == "Login")
     {
         Layout = "~/Views/Shared/_LogLayout.cshtml";
+
+    }
+    if (controller == "Colaborateur")
+    {
+        Layout = "~/Views/Shared/_ColaborateurLayout.cshtml";
+    }
+    if (Session["Role"] != null && Session["DateConnection"]!=null && Session["Role"].Equals("Colaborateur"))
+    {
+        
+            Layout = "~/Views/Shared/_ColaborateurLayout.cshtml";
+
+        
     }
 }

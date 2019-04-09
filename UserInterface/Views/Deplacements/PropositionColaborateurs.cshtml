@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Entities.Colaborateur>
+
+<h3>Proposition des prochains collaborateurs à se déplacer</h3>
+
+<div class="panel panel-default TableColab">
+    <header></header>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prenom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Poste)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Equipe)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreDeplacement)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Anciennete)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateValiditeVisa)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateFinVisa)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prenom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Poste)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Equipe)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreDeplacement)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Anciennete)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateValiditeVisa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateFinVisa)
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

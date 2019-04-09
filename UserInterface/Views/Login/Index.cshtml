@@ -1,29 +1,40 @@
-﻿@{
+﻿@model Entities.Colaborateur
+@{
     ViewBag.Title = "Index";
 }
-
-<div class="loginPanel">
-    <h3 class="md_title">Authentification</h3>
+<div class="loginPanel ">
+        <div class="logo-container md_title"><img src="~/Content/SQLI_logo.png" /></div>
     <div class="loginForm">
-        <form>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()         
+    @Html.ValidationSummary(true)
+  
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="InputEmail1" placeholder="Email">
+                <label for="exampleInputEmail1">Login</label>
+                  @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
-            </div>
-
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox"> Check me out
-                </label>
+                 @Html.PasswordFor(model => model.Password, new { @class = "form-control", autocomplete = "off" })
             </div>
             <div class="btn-form">
-                <button type="submit" class="btn btn-primary">Submit</button>
-
+                <button type="submit" class="btn btn-primary ">Submit</button>
             </div>
-        </form>
-    </div>
+            <br />
+    if (@ViewBag.Message != null)
+    {
+        <div style="color:red">
+            @ViewBag.Message
+        </div>
+    }
+    if (@TempData["Message"] != null)
+    {
+        <div style="color:red">
+            @TempData["Message"].ToString()
+        </div>
+    }
+@Html.ActionLink("Mot de passe oublié ?", "RecoverPassword", "Login");
+}
+        </div>
 </div>

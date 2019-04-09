@@ -1,0 +1,75 @@
+﻿@model Entities.Deplacement
+
+@{
+    ViewBag.Title ="Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Deplacement</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Date", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control datepicker", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Cout", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cout, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.Cout, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Observation", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Observation, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.Observation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Collaborateurs", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-4">
+                @Html.ListBox("IdT", ViewBag.IdD as MultiSelectList, htmlAttributes: new { @class = "form-control", id = "ListBox1", onchange = "select()", size = "10", Multiple = "multiple" })
+            </div>
+            <div class="col-sm-1" style="font-size: 20px"><i class="glyphicon glyphicon-resize-horizontal"></i></div>
+            <div class="col-md-4">
+                @Html.ListBox("IdU", ViewBag.IdSelected as MultiSelectList, htmlAttributes: new { @class = "form-control", id = "ListBox2", onchange = "annuler()", size = "10", Multiple = "multiple" })
+            </div>
+        </div>        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" onclick="save()" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+    function select() {
+               $("#ListBox1 > option:selected").each(function () {
+                   $(this).remove().appendTo("#ListBox2");
+
+               });
+            }
+  function annuler() {
+        $("#ListBox2 > option:selected").each(function () {
+            $(this).remove().appendTo("#ListBox1");
+        });
+
+    }
+
+    function save() {
+            $("#ListBox2 option").prop("selected", "selected");
+
+        }
+</script>

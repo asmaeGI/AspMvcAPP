@@ -1,8 +1,17 @@
-﻿body {
+﻿html{
+    height:100%;
+}
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
+.loginBackground{
+    background-image:url("background.jpg");
+    height:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -41,31 +50,40 @@ textarea {
 /*end Layout Style*/
 /*Start Login Page*/
 .md_title{
-    text-align: center;
-    color: #428bca;
-    padding-bottom: 10%;
+   text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    margin-bottom: 10%;
+    border-radius: 50%;
+    background-color: #428bca;
 }
 .form-group{
     color:#428bca;
 }
 .loginPanel {
-    background-color:#f9fcff;
+    background-color:white;
+    background-color : rgba(255, 255, 255, 0.65);
     padding-top: 3%;
     padding-bottom: 5%;
     margin-top: 100px;
     margin-right: auto;
     margin-left: auto;
-    border-color:#95bde0;
-    border-style: outset;
     height: auto;
-    width: 400px;
+    width: 30%;
 }
 .loginForm{
-    padding-left: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+
 }
 .loginForm .btn-form{
      padding-top: 10%;
-    padding-left: 30%;
+    padding-left: 35%;
+     margin-right: auto;
+    margin-left: auto;
 }
 /*End Login Page*/
 /*Start main Page*/
@@ -78,10 +96,29 @@ textarea {
 
 }
 .TableColab thead{
-    background-color:#c19b4f;
+    background-color:#cacaca;
 }
 .pagerStyle{
     padding-left: 5%;
     padding-right: 5%;
 }
+.ThLabel {
+    color: #428bb2;
+}
+.paginate_button {
+    background-color: #428bca;
+    border-color: #428bca;
+    color: white;
+    border-width: 2px;
+    border-style: solid;
+    padding:0.75% 1%;
+
+}
 /*End Main Page*/
+.message {
+    background-color: #eee;
+    margin-top: -1.5%;
+    text-align: center;
+    padding-bottom: 2%;
+    height: auto;
+}

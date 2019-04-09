@@ -21,16 +21,23 @@ namespace UserInterface.ServiceUColaborateur {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/ajouterColab", ReplyAction="http://tempuri.org/IUColaborateur/ajouterColabResponse")]
         System.Threading.Tasks.Task ajouterColabAsync(Entities.Colaborateur colaborateur);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/afficherColab", ReplyAction="http://tempuri.org/IUColaborateur/afficherColabResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Entities.Colaborateur))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Entities.DemandeVisa[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Entities.DemandeVisa))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Entities.Deplacement[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Entities.Deplacement))]
-        object afficherColab(string sortOrder, string searchString, string currentFilter, System.Nullable<int> page, int pageSize);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/getColaborateurs", ReplyAction="http://tempuri.org/IUColaborateur/getColaborateursResponse")]
+        Entities.Colaborateur[] getColaborateurs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/getColaborateurs", ReplyAction="http://tempuri.org/IUColaborateur/getColaborateursResponse")]
+        System.Threading.Tasks.Task<Entities.Colaborateur[]> getColaborateursAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/getColaborateur", ReplyAction="http://tempuri.org/IUColaborateur/getColaborateurResponse")]
+        Entities.Colaborateur getColaborateur(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/getColaborateur", ReplyAction="http://tempuri.org/IUColaborateur/getColaborateurResponse")]
+        System.Threading.Tasks.Task<Entities.Colaborateur> getColaborateurAsync(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/afficherColab", ReplyAction="http://tempuri.org/IUColaborateur/afficherColabResponse")]
-        System.Threading.Tasks.Task<object> afficherColabAsync(string sortOrder, string searchString, string currentFilter, System.Nullable<int> page, int pageSize);
+        Entities.Colaborateur[] afficherColab();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/afficherColab", ReplyAction="http://tempuri.org/IUColaborateur/afficherColabResponse")]
+        System.Threading.Tasks.Task<Entities.Colaborateur[]> afficherColabAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerColaborateurConfirmer", ReplyAction="http://tempuri.org/IUColaborateur/supprimerColaborateurConfirmerResponse")]
         bool supprimerColaborateurConfirmer(System.Nullable<int> id);
@@ -50,11 +57,11 @@ namespace UserInterface.ServiceUColaborateur {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/detaillerColaborateur", ReplyAction="http://tempuri.org/IUColaborateur/detaillerColaborateurResponse")]
         System.Threading.Tasks.Task<Entities.Colaborateur> detaillerColaborateurAsync(System.Nullable<int> id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierColborateur", ReplyAction="http://tempuri.org/IUColaborateur/modifierColborateurResponse")]
-        Entities.Colaborateur modifierColborateur(System.Nullable<int> id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierColborateurById", ReplyAction="http://tempuri.org/IUColaborateur/modifierColborateurByIdResponse")]
+        Entities.Colaborateur modifierColborateurById(System.Nullable<int> id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierColborateur", ReplyAction="http://tempuri.org/IUColaborateur/modifierColborateurResponse")]
-        System.Threading.Tasks.Task<Entities.Colaborateur> modifierColborateurAsync(System.Nullable<int> id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierColborateurById", ReplyAction="http://tempuri.org/IUColaborateur/modifierColborateurByIdResponse")]
+        System.Threading.Tasks.Task<Entities.Colaborateur> modifierColborateurByIdAsync(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierColaborateur", ReplyAction="http://tempuri.org/IUColaborateur/modifierColaborateurResponse")]
         void modifierColaborateur(Entities.Colaborateur colaborateur);
@@ -73,6 +80,108 @@ namespace UserInterface.ServiceUColaborateur {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/ExporterColaborateur", ReplyAction="http://tempuri.org/IUColaborateur/ExporterColaborateurResponse")]
         System.Threading.Tasks.Task<byte[]> ExporterColaborateurAsync(string exportType, string path);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/sendMail", ReplyAction="http://tempuri.org/IUColaborateur/sendMailResponse")]
+        bool sendMail(string email, string objet, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/sendMail", ReplyAction="http://tempuri.org/IUColaborateur/sendMailResponse")]
+        System.Threading.Tasks.Task<bool> sendMailAsync(string email, string objet, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/ajouterDemandeVisa", ReplyAction="http://tempuri.org/IUColaborateur/ajouterDemandeVisaResponse")]
+        void ajouterDemandeVisa(Entities.DemandeVisa demandeVisa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/ajouterDemandeVisa", ReplyAction="http://tempuri.org/IUColaborateur/ajouterDemandeVisaResponse")]
+        System.Threading.Tasks.Task ajouterDemandeVisaAsync(Entities.DemandeVisa demandeVisa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/afficherVisa", ReplyAction="http://tempuri.org/IUColaborateur/afficherVisaResponse")]
+        Entities.DemandeVisa[] afficherVisa();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/afficherVisa", ReplyAction="http://tempuri.org/IUColaborateur/afficherVisaResponse")]
+        System.Threading.Tasks.Task<Entities.DemandeVisa[]> afficherVisaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerDemandeVisaConfirmer", ReplyAction="http://tempuri.org/IUColaborateur/supprimerDemandeVisaConfirmerResponse")]
+        bool supprimerDemandeVisaConfirmer(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerDemandeVisaConfirmer", ReplyAction="http://tempuri.org/IUColaborateur/supprimerDemandeVisaConfirmerResponse")]
+        System.Threading.Tasks.Task<bool> supprimerDemandeVisaConfirmerAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerDemandeVisa", ReplyAction="http://tempuri.org/IUColaborateur/supprimerDemandeVisaResponse")]
+        Entities.DemandeVisa supprimerDemandeVisa(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerDemandeVisa", ReplyAction="http://tempuri.org/IUColaborateur/supprimerDemandeVisaResponse")]
+        System.Threading.Tasks.Task<Entities.DemandeVisa> supprimerDemandeVisaAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/detaillerDemandeVisa", ReplyAction="http://tempuri.org/IUColaborateur/detaillerDemandeVisaResponse")]
+        Entities.DemandeVisa detaillerDemandeVisa(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/detaillerDemandeVisa", ReplyAction="http://tempuri.org/IUColaborateur/detaillerDemandeVisaResponse")]
+        System.Threading.Tasks.Task<Entities.DemandeVisa> detaillerDemandeVisaAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierDemandeVisaById", ReplyAction="http://tempuri.org/IUColaborateur/modifierDemandeVisaByIdResponse")]
+        Entities.DemandeVisa modifierDemandeVisaById(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierDemandeVisaById", ReplyAction="http://tempuri.org/IUColaborateur/modifierDemandeVisaByIdResponse")]
+        System.Threading.Tasks.Task<Entities.DemandeVisa> modifierDemandeVisaByIdAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierDemandeVisa", ReplyAction="http://tempuri.org/IUColaborateur/modifierDemandeVisaResponse")]
+        void modifierDemandeVisa(Entities.DemandeVisa demandeVisa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierDemandeVisa", ReplyAction="http://tempuri.org/IUColaborateur/modifierDemandeVisaResponse")]
+        System.Threading.Tasks.Task modifierDemandeVisaAsync(Entities.DemandeVisa demandeVisa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/ajouterDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/ajouterDeplacementResponse")]
+        void ajouterDeplacement(Entities.Deplacement deplacement, System.Nullable<int>[] IdU);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/ajouterDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/ajouterDeplacementResponse")]
+        System.Threading.Tasks.Task ajouterDeplacementAsync(Entities.Deplacement deplacement, System.Nullable<int>[] IdU);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/afficherDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/afficherDeplacementResponse")]
+        Entities.Deplacement[] afficherDeplacement();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/afficherDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/afficherDeplacementResponse")]
+        System.Threading.Tasks.Task<Entities.Deplacement[]> afficherDeplacementAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerDeplacementConfirmer", ReplyAction="http://tempuri.org/IUColaborateur/supprimerDeplacementConfirmerResponse")]
+        bool supprimerDeplacementConfirmer(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerDeplacementConfirmer", ReplyAction="http://tempuri.org/IUColaborateur/supprimerDeplacementConfirmerResponse")]
+        System.Threading.Tasks.Task<bool> supprimerDeplacementConfirmerAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/supprimerDeplacementResponse")]
+        Entities.Deplacement supprimerDeplacement(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/supprimerDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/supprimerDeplacementResponse")]
+        System.Threading.Tasks.Task<Entities.Deplacement> supprimerDeplacementAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/detaillerDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/detaillerDeplacementResponse")]
+        Entities.Deplacement detaillerDeplacement(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/detaillerDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/detaillerDeplacementResponse")]
+        System.Threading.Tasks.Task<Entities.Deplacement> detaillerDeplacementAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierDeplacementById", ReplyAction="http://tempuri.org/IUColaborateur/modifierDeplacementByIdResponse")]
+        Entities.Deplacement modifierDeplacementById(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierDeplacementById", ReplyAction="http://tempuri.org/IUColaborateur/modifierDeplacementByIdResponse")]
+        System.Threading.Tasks.Task<Entities.Deplacement> modifierDeplacementByIdAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/modifierDeplacementResponse")]
+        void modifierDeplacement(Entities.Deplacement deplacement, System.Nullable<int>[] IdU);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/modifierDeplacement", ReplyAction="http://tempuri.org/IUColaborateur/modifierDeplacementResponse")]
+        System.Threading.Tasks.Task modifierDeplacementAsync(Entities.Deplacement deplacement, System.Nullable<int>[] IdU);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/ProposeColaborateur", ReplyAction="http://tempuri.org/IUColaborateur/ProposeColaborateurResponse")]
+        Entities.Colaborateur[] ProposeColaborateur();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/ProposeColaborateur", ReplyAction="http://tempuri.org/IUColaborateur/ProposeColaborateurResponse")]
+        System.Threading.Tasks.Task<Entities.Colaborateur[]> ProposeColaborateurAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/getDeplacements", ReplyAction="http://tempuri.org/IUColaborateur/getDeplacementsResponse")]
+        Entities.Deplacement[] getDeplacements();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUColaborateur/getDeplacements", ReplyAction="http://tempuri.org/IUColaborateur/getDeplacementsResponse")]
+        System.Threading.Tasks.Task<Entities.Deplacement[]> getDeplacementsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -110,12 +219,28 @@ namespace UserInterface.ServiceUColaborateur {
             return base.Channel.ajouterColabAsync(colaborateur);
         }
         
-        public object afficherColab(string sortOrder, string searchString, string currentFilter, System.Nullable<int> page, int pageSize) {
-            return base.Channel.afficherColab(sortOrder, searchString, currentFilter, page, pageSize);
+        public Entities.Colaborateur[] getColaborateurs() {
+            return base.Channel.getColaborateurs();
         }
         
-        public System.Threading.Tasks.Task<object> afficherColabAsync(string sortOrder, string searchString, string currentFilter, System.Nullable<int> page, int pageSize) {
-            return base.Channel.afficherColabAsync(sortOrder, searchString, currentFilter, page, pageSize);
+        public System.Threading.Tasks.Task<Entities.Colaborateur[]> getColaborateursAsync() {
+            return base.Channel.getColaborateursAsync();
+        }
+        
+        public Entities.Colaborateur getColaborateur(System.Nullable<int> id) {
+            return base.Channel.getColaborateur(id);
+        }
+        
+        public System.Threading.Tasks.Task<Entities.Colaborateur> getColaborateurAsync(System.Nullable<int> id) {
+            return base.Channel.getColaborateurAsync(id);
+        }
+        
+        public Entities.Colaborateur[] afficherColab() {
+            return base.Channel.afficherColab();
+        }
+        
+        public System.Threading.Tasks.Task<Entities.Colaborateur[]> afficherColabAsync() {
+            return base.Channel.afficherColabAsync();
         }
         
         public bool supprimerColaborateurConfirmer(System.Nullable<int> id) {
@@ -142,12 +267,12 @@ namespace UserInterface.ServiceUColaborateur {
             return base.Channel.detaillerColaborateurAsync(id);
         }
         
-        public Entities.Colaborateur modifierColborateur(System.Nullable<int> id) {
-            return base.Channel.modifierColborateur(id);
+        public Entities.Colaborateur modifierColborateurById(System.Nullable<int> id) {
+            return base.Channel.modifierColborateurById(id);
         }
         
-        public System.Threading.Tasks.Task<Entities.Colaborateur> modifierColborateurAsync(System.Nullable<int> id) {
-            return base.Channel.modifierColborateurAsync(id);
+        public System.Threading.Tasks.Task<Entities.Colaborateur> modifierColborateurByIdAsync(System.Nullable<int> id) {
+            return base.Channel.modifierColborateurByIdAsync(id);
         }
         
         public void modifierColaborateur(Entities.Colaborateur colaborateur) {
@@ -172,6 +297,142 @@ namespace UserInterface.ServiceUColaborateur {
         
         public System.Threading.Tasks.Task<byte[]> ExporterColaborateurAsync(string exportType, string path) {
             return base.Channel.ExporterColaborateurAsync(exportType, path);
+        }
+        
+        public bool sendMail(string email, string objet, string message) {
+            return base.Channel.sendMail(email, objet, message);
+        }
+        
+        public System.Threading.Tasks.Task<bool> sendMailAsync(string email, string objet, string message) {
+            return base.Channel.sendMailAsync(email, objet, message);
+        }
+        
+        public void ajouterDemandeVisa(Entities.DemandeVisa demandeVisa) {
+            base.Channel.ajouterDemandeVisa(demandeVisa);
+        }
+        
+        public System.Threading.Tasks.Task ajouterDemandeVisaAsync(Entities.DemandeVisa demandeVisa) {
+            return base.Channel.ajouterDemandeVisaAsync(demandeVisa);
+        }
+        
+        public Entities.DemandeVisa[] afficherVisa() {
+            return base.Channel.afficherVisa();
+        }
+        
+        public System.Threading.Tasks.Task<Entities.DemandeVisa[]> afficherVisaAsync() {
+            return base.Channel.afficherVisaAsync();
+        }
+        
+        public bool supprimerDemandeVisaConfirmer(System.Nullable<int> id) {
+            return base.Channel.supprimerDemandeVisaConfirmer(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> supprimerDemandeVisaConfirmerAsync(System.Nullable<int> id) {
+            return base.Channel.supprimerDemandeVisaConfirmerAsync(id);
+        }
+        
+        public Entities.DemandeVisa supprimerDemandeVisa(System.Nullable<int> id) {
+            return base.Channel.supprimerDemandeVisa(id);
+        }
+        
+        public System.Threading.Tasks.Task<Entities.DemandeVisa> supprimerDemandeVisaAsync(System.Nullable<int> id) {
+            return base.Channel.supprimerDemandeVisaAsync(id);
+        }
+        
+        public Entities.DemandeVisa detaillerDemandeVisa(System.Nullable<int> id) {
+            return base.Channel.detaillerDemandeVisa(id);
+        }
+        
+        public System.Threading.Tasks.Task<Entities.DemandeVisa> detaillerDemandeVisaAsync(System.Nullable<int> id) {
+            return base.Channel.detaillerDemandeVisaAsync(id);
+        }
+        
+        public Entities.DemandeVisa modifierDemandeVisaById(System.Nullable<int> id) {
+            return base.Channel.modifierDemandeVisaById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Entities.DemandeVisa> modifierDemandeVisaByIdAsync(System.Nullable<int> id) {
+            return base.Channel.modifierDemandeVisaByIdAsync(id);
+        }
+        
+        public void modifierDemandeVisa(Entities.DemandeVisa demandeVisa) {
+            base.Channel.modifierDemandeVisa(demandeVisa);
+        }
+        
+        public System.Threading.Tasks.Task modifierDemandeVisaAsync(Entities.DemandeVisa demandeVisa) {
+            return base.Channel.modifierDemandeVisaAsync(demandeVisa);
+        }
+        
+        public void ajouterDeplacement(Entities.Deplacement deplacement, System.Nullable<int>[] IdU) {
+            base.Channel.ajouterDeplacement(deplacement, IdU);
+        }
+        
+        public System.Threading.Tasks.Task ajouterDeplacementAsync(Entities.Deplacement deplacement, System.Nullable<int>[] IdU) {
+            return base.Channel.ajouterDeplacementAsync(deplacement, IdU);
+        }
+        
+        public Entities.Deplacement[] afficherDeplacement() {
+            return base.Channel.afficherDeplacement();
+        }
+        
+        public System.Threading.Tasks.Task<Entities.Deplacement[]> afficherDeplacementAsync() {
+            return base.Channel.afficherDeplacementAsync();
+        }
+        
+        public bool supprimerDeplacementConfirmer(System.Nullable<int> id) {
+            return base.Channel.supprimerDeplacementConfirmer(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> supprimerDeplacementConfirmerAsync(System.Nullable<int> id) {
+            return base.Channel.supprimerDeplacementConfirmerAsync(id);
+        }
+        
+        public Entities.Deplacement supprimerDeplacement(System.Nullable<int> id) {
+            return base.Channel.supprimerDeplacement(id);
+        }
+        
+        public System.Threading.Tasks.Task<Entities.Deplacement> supprimerDeplacementAsync(System.Nullable<int> id) {
+            return base.Channel.supprimerDeplacementAsync(id);
+        }
+        
+        public Entities.Deplacement detaillerDeplacement(System.Nullable<int> id) {
+            return base.Channel.detaillerDeplacement(id);
+        }
+        
+        public System.Threading.Tasks.Task<Entities.Deplacement> detaillerDeplacementAsync(System.Nullable<int> id) {
+            return base.Channel.detaillerDeplacementAsync(id);
+        }
+        
+        public Entities.Deplacement modifierDeplacementById(System.Nullable<int> id) {
+            return base.Channel.modifierDeplacementById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Entities.Deplacement> modifierDeplacementByIdAsync(System.Nullable<int> id) {
+            return base.Channel.modifierDeplacementByIdAsync(id);
+        }
+        
+        public void modifierDeplacement(Entities.Deplacement deplacement, System.Nullable<int>[] IdU) {
+            base.Channel.modifierDeplacement(deplacement, IdU);
+        }
+        
+        public System.Threading.Tasks.Task modifierDeplacementAsync(Entities.Deplacement deplacement, System.Nullable<int>[] IdU) {
+            return base.Channel.modifierDeplacementAsync(deplacement, IdU);
+        }
+        
+        public Entities.Colaborateur[] ProposeColaborateur() {
+            return base.Channel.ProposeColaborateur();
+        }
+        
+        public System.Threading.Tasks.Task<Entities.Colaborateur[]> ProposeColaborateurAsync() {
+            return base.Channel.ProposeColaborateurAsync();
+        }
+        
+        public Entities.Deplacement[] getDeplacements() {
+            return base.Channel.getDeplacements();
+        }
+        
+        public System.Threading.Tasks.Task<Entities.Deplacement[]> getDeplacementsAsync() {
+            return base.Channel.getDeplacementsAsync();
         }
     }
 }

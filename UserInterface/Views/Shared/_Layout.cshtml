@@ -4,10 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="~/Content/SQLI_logo.png" />
     <title>@ViewBag.Title - Sqli X Tarkett</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
 </head>
@@ -23,13 +27,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Sqli X Tarkett", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Sqli X Tarkett", "Index", "UIColaborateur", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Gestion des colaborateur", "Index", "UIColaborateur")</li>
-                    <li>@Html.ActionLink("Gestion des Visas", "About", "Home")</li>
-                    <li>@Html.ActionLink("Gestion des deplacelemnts", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Gestion des collaborateurs", "Index", "UIColaborateur")</li>
+                    <li>@Html.ActionLink("Gestion des Visas", "Index", "UIDemandeVisa")</li>
+                    <li>@Html.ActionLink("Gestion des deplacements", "Index", "Deplacements")</li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+
+                    <li>
+                        <a href="@Url.Action("Index", "Profile")" >
+                              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Admin
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("LogOut", "Login")">
+                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -42,6 +60,8 @@
     <script src="~/scripts/jquery-1.12.4.js"></script>
     <script src="~/scripts/jquery-1.12.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/DataTables/dataTables.bootstrap.js"></script>
+    <script src="~/scripts/DataTables/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 
     <script>
@@ -49,7 +69,14 @@
             $(".datepicker").datepicker({
                 dateFormat: "yy-mm-dd",
                 changeYear: true,
+
             });
+        });
+        $(document).ready(function () {
+
+            $('#assets-data-table').DataTable({
+            });
+
         });
     </script>
 

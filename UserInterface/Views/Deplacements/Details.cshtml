@@ -1,0 +1,50 @@
+﻿@model Entities.Deplacement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Deplacement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Date de déplacement", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.Label("Cout de déplacement", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cout)
+        </dd>
+
+        <dt>
+            @Html.Label("Observation", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observation)
+        </dd>
+        <dt>
+            @Html.Label("Collaborateurs", htmlAttributes: new { @class = "col-sm-1 text-left" })
+        </dt>
+        <dd>
+            @foreach (var col in Model.Colaborateur)
+            {
+                @Html.DisplayFor(model => col.Nom)<br />
+            }                        
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

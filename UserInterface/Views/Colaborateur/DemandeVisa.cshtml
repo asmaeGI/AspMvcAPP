@@ -1,0 +1,78 @@
+﻿@model Entities.DemandeVisa
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Demande Visa</h3>
+<br/>
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="panel panel-primary list-panel" id="list-panel">
+
+            <div class="panel-heading list-panel-heading">
+
+                <h1 class="panel-title list-panel-title">Demande Visa</h1>
+
+            </div>
+
+            <div class="panel-body">
+
+                <table id="assets-data-table" class="table table-striped table-bordered TableColab" style="width:100%">
+
+                    <thead>
+                        <tr>
+                            <th>@Html.Label("Nom collaborateur", new { @class = "ThLabel" })</th>
+                            <th>@Html.Label("Prénom collaborateur", new { @class = "ThLabel" })</th>
+                            <th>@Html.Label("Date demande", new { @class = "ThLabel" })</th>
+                            <th>@Html.Label("Statut", new { @class = "ThLabel" })</th>
+                            <th>@Html.Label("Début validité Visa", new { @class = "ThLabel" })</th>
+                            <th>@Html.Label("Fin validité Visa", new { @class = "ThLabel" })</th>
+                            <th>@Html.Label("Observation", new { @class = "ThLabel" })</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Colaborateur.Nom)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Colaborateur.Prenom)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.DateValiditeVisa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.DateFinVisa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Observation)
+                                </td>
+
+                            </tr>
+                    </tbody>
+                </table>
+                <div class="message">@ViewBag.message</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+Plus d'info .........
+
+
+
+  
+
+        

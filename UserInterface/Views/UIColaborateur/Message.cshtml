@@ -1,0 +1,39 @@
+﻿@model Entities.Colaborateur
+
+<div class="form-horizontal">
+    <h4>Contacter collaborateur</h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.IdCol)
+
+        <div class="form-group">
+            @Html.Label("Email", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("colMail", Model.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Objet", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                      @Html.TextBox("objet", null, new { @class = "form-control" ,autocomplete="off" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Message", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("message", new { @class = "form-control" ,@cols = 150, @rows = 10 })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="send" class="btn btn-default" />
+            </div>
+        </div>
+
+        @ViewBag.Status
+
+    }
+</div>

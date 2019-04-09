@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Profile Colaborateur</h2>
+<h2>Profile Collaborateur</h2>
 
 <div>
     <hr />
@@ -112,9 +112,15 @@
         <dd>
             @Html.DisplayFor(model => model.Sexe)
         </dd>
+        <dt>
+            deplacement
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Deplacement.Cout)
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) | @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCol }) | @Html.ActionLink("Back to List", "Index")
 </p>
 <br />

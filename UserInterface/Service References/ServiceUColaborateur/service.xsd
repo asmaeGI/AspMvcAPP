@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/Entities" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:element name="ajouterColab">
     <xs:complexType>
       <xs:sequence>
@@ -13,21 +14,41 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="afficherColab">
+  <xs:element name="getColaborateurs">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getColaborateursResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="sortOrder" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="currentFilter" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="page" nillable="true" type="xs:int" />
-        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="getColaborateursResult" nillable="true" type="q2:ArrayOfColaborateur" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getColaborateur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getColaborateurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="getColaborateurResult" nillable="true" type="q3:Colaborateur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="afficherColab">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="afficherColabResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="afficherColabResult" nillable="true" type="xs:anyType" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="afficherColabResult" nillable="true" type="q4:ArrayOfColaborateur" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -55,7 +76,7 @@
   <xs:element name="supprimerColaborateurResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="supprimerColaborateurResult" nillable="true" type="q2:Colaborateur" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="supprimerColaborateurResult" nillable="true" type="q5:Colaborateur" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -69,28 +90,28 @@
   <xs:element name="detaillerColaborateurResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="detaillerColaborateurResult" nillable="true" type="q3:Colaborateur" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="detaillerColaborateurResult" nillable="true" type="q6:Colaborateur" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="modifierColborateur">
+  <xs:element name="modifierColborateurById">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="modifierColborateurResponse">
+  <xs:element name="modifierColborateurByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="modifierColborateurResult" nillable="true" type="q4:Colaborateur" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="modifierColborateurByIdResult" nillable="true" type="q7:Colaborateur" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="modifierColaborateur">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="colaborateur" nillable="true" type="q5:Colaborateur" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="colaborateur" nillable="true" type="q8:Colaborateur" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -125,6 +146,232 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ExporterColaborateurResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendMail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="objet" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendMailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sendMailResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ajouterDemandeVisa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="demandeVisa" nillable="true" type="q9:DemandeVisa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ajouterDemandeVisaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="afficherVisa">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="afficherVisaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="afficherVisaResult" nillable="true" type="q10:ArrayOfDemandeVisa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDemandeVisaConfirmer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDemandeVisaConfirmerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supprimerDemandeVisaConfirmerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDemandeVisa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDemandeVisaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="supprimerDemandeVisaResult" nillable="true" type="q11:DemandeVisa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="detaillerDemandeVisa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="detaillerDemandeVisaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="detaillerDemandeVisaResult" nillable="true" type="q12:DemandeVisa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifierDemandeVisaById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifierDemandeVisaByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="modifierDemandeVisaByIdResult" nillable="true" type="q13:DemandeVisa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifierDemandeVisa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="demandeVisa" nillable="true" type="q14:DemandeVisa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifierDemandeVisaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ajouterDeplacement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="deplacement" nillable="true" type="q15:Deplacement" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="IdU" nillable="true" type="q16:ArrayOfNullableOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ajouterDeplacementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="afficherDeplacement">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="afficherDeplacementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="afficherDeplacementResult" nillable="true" type="q17:ArrayOfDeplacement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDeplacementConfirmer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDeplacementConfirmerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supprimerDeplacementConfirmerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDeplacement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDeplacementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="supprimerDeplacementResult" nillable="true" type="q18:Deplacement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="detaillerDeplacement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="detaillerDeplacementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="detaillerDeplacementResult" nillable="true" type="q19:Deplacement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifierDeplacementById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifierDeplacementByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="modifierDeplacementByIdResult" nillable="true" type="q20:Deplacement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifierDeplacement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="deplacement" nillable="true" type="q21:Deplacement" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="IdU" nillable="true" type="q22:ArrayOfNullableOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifierDeplacementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProposeColaborateur">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProposeColaborateurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="ProposeColaborateurResult" nillable="true" type="q23:ArrayOfColaborateur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeplacements">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeplacementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="getDeplacementsResult" nillable="true" type="q24:ArrayOfDeplacement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

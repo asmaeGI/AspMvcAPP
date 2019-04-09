@@ -4,34 +4,36 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Anciennete" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Cin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateConnection" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DateFinVisa" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DateValiditeVisa" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DemandeVisa" nillable="true" type="tns:ArrayOfDemandeVisa" />
-      <xs:element minOccurs="0" name="Deplacement" nillable="true" type="tns:ArrayOfDeplacement" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Equipe" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdCol" type="xs:int" />
+      <xs:element minOccurs="0" name="IdD" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreDeplacement" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Poste" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Sexe" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Colaborateur" nillable="true" type="tns:Colaborateur" />
-  <xs:complexType name="ArrayOfDemandeVisa">
+  <xs:complexType name="ArrayOfColaborateur">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DemandeVisa" nillable="true" type="tns:DemandeVisa" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Colaborateur" nillable="true" type="tns:Colaborateur" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfDemandeVisa" nillable="true" type="tns:ArrayOfDemandeVisa" />
+  <xs:element name="ArrayOfColaborateur" nillable="true" type="tns:ArrayOfColaborateur" />
   <xs:complexType name="DemandeVisa">
     <xs:sequence>
       <xs:element minOccurs="0" name="Colaborateur" nillable="true" type="tns:Colaborateur" />
-      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Dure" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateFinVisa" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateValiditeVisa" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdC" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Observation" nillable="true" type="xs:string" />
@@ -39,21 +41,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DemandeVisa" nillable="true" type="tns:DemandeVisa" />
+  <xs:complexType name="ArrayOfDemandeVisa">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DemandeVisa" nillable="true" type="tns:DemandeVisa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDemandeVisa" nillable="true" type="tns:ArrayOfDemandeVisa" />
+  <xs:complexType name="Deplacement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Colaborateur" nillable="true" type="tns:ArrayOfColaborateur" />
+      <xs:element minOccurs="0" name="Cout" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Observation" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Deplacement" nillable="true" type="tns:Deplacement" />
   <xs:complexType name="ArrayOfDeplacement">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Deplacement" nillable="true" type="tns:Deplacement" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfDeplacement" nillable="true" type="tns:ArrayOfDeplacement" />
-  <xs:complexType name="Deplacement">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Colaborateur" nillable="true" type="tns:Colaborateur" />
-      <xs:element minOccurs="0" name="Cout" nillable="true" type="xs:double" />
-      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="IdC" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Observation" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Deplacement" nillable="true" type="tns:Deplacement" />
 </xs:schema>

@@ -5,6 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Entities" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUColaborateur_ajouterColab_InputMessage">
@@ -12,6 +13,18 @@
   </wsdl:message>
   <wsdl:message name="IUColaborateur_ajouterColab_OutputMessage">
     <wsdl:part name="parameters" element="tns:ajouterColabResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_getColaborateurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:getColaborateurs" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_getColaborateurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getColaborateursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_getColaborateur_InputMessage">
+    <wsdl:part name="parameters" element="tns:getColaborateur" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_getColaborateur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getColaborateurResponse" />
   </wsdl:message>
   <wsdl:message name="IUColaborateur_afficherColab_InputMessage">
     <wsdl:part name="parameters" element="tns:afficherColab" />
@@ -37,11 +50,11 @@
   <wsdl:message name="IUColaborateur_detaillerColaborateur_OutputMessage">
     <wsdl:part name="parameters" element="tns:detaillerColaborateurResponse" />
   </wsdl:message>
-  <wsdl:message name="IUColaborateur_modifierColborateur_InputMessage">
-    <wsdl:part name="parameters" element="tns:modifierColborateur" />
+  <wsdl:message name="IUColaborateur_modifierColborateurById_InputMessage">
+    <wsdl:part name="parameters" element="tns:modifierColborateurById" />
   </wsdl:message>
-  <wsdl:message name="IUColaborateur_modifierColborateur_OutputMessage">
-    <wsdl:part name="parameters" element="tns:modifierColborateurResponse" />
+  <wsdl:message name="IUColaborateur_modifierColborateurById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modifierColborateurByIdResponse" />
   </wsdl:message>
   <wsdl:message name="IUColaborateur_modifierColaborateur_InputMessage">
     <wsdl:part name="parameters" element="tns:modifierColaborateur" />
@@ -61,10 +74,120 @@
   <wsdl:message name="IUColaborateur_ExporterColaborateur_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExporterColaborateurResponse" />
   </wsdl:message>
+  <wsdl:message name="IUColaborateur_sendMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendMail" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_sendMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ajouterDemandeVisa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ajouterDemandeVisa" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ajouterDemandeVisa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ajouterDemandeVisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_afficherVisa_InputMessage">
+    <wsdl:part name="parameters" element="tns:afficherVisa" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_afficherVisa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:afficherVisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerDemandeVisaConfirmer_InputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDemandeVisaConfirmer" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerDemandeVisaConfirmer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDemandeVisaConfirmerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerDemandeVisa_InputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDemandeVisa" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerDemandeVisa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDemandeVisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_detaillerDemandeVisa_InputMessage">
+    <wsdl:part name="parameters" element="tns:detaillerDemandeVisa" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_detaillerDemandeVisa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:detaillerDemandeVisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierDemandeVisaById_InputMessage">
+    <wsdl:part name="parameters" element="tns:modifierDemandeVisaById" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierDemandeVisaById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modifierDemandeVisaByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierDemandeVisa_InputMessage">
+    <wsdl:part name="parameters" element="tns:modifierDemandeVisa" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierDemandeVisa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modifierDemandeVisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ajouterDeplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:ajouterDeplacement" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ajouterDeplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ajouterDeplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_afficherDeplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:afficherDeplacement" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_afficherDeplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:afficherDeplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerDeplacementConfirmer_InputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDeplacementConfirmer" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerDeplacementConfirmer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDeplacementConfirmerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerDeplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDeplacement" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_supprimerDeplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDeplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_detaillerDeplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:detaillerDeplacement" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_detaillerDeplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:detaillerDeplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierDeplacementById_InputMessage">
+    <wsdl:part name="parameters" element="tns:modifierDeplacementById" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierDeplacementById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modifierDeplacementByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierDeplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:modifierDeplacement" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_modifierDeplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modifierDeplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ProposeColaborateur_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProposeColaborateur" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_ProposeColaborateur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProposeColaborateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_getDeplacements_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDeplacements" />
+  </wsdl:message>
+  <wsdl:message name="IUColaborateur_getDeplacements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDeplacementsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUColaborateur">
     <wsdl:operation name="ajouterColab">
       <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/ajouterColab" message="tns:IUColaborateur_ajouterColab_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/ajouterColabResponse" message="tns:IUColaborateur_ajouterColab_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getColaborateurs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/getColaborateurs" message="tns:IUColaborateur_getColaborateurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/getColaborateursResponse" message="tns:IUColaborateur_getColaborateurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getColaborateur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/getColaborateur" message="tns:IUColaborateur_getColaborateur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/getColaborateurResponse" message="tns:IUColaborateur_getColaborateur_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="afficherColab">
       <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/afficherColab" message="tns:IUColaborateur_afficherColab_InputMessage" />
@@ -82,9 +205,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/detaillerColaborateur" message="tns:IUColaborateur_detaillerColaborateur_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/detaillerColaborateurResponse" message="tns:IUColaborateur_detaillerColaborateur_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="modifierColborateur">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierColborateur" message="tns:IUColaborateur_modifierColborateur_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/modifierColborateurResponse" message="tns:IUColaborateur_modifierColborateur_OutputMessage" />
+    <wsdl:operation name="modifierColborateurById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierColborateurById" message="tns:IUColaborateur_modifierColborateurById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/modifierColborateurByIdResponse" message="tns:IUColaborateur_modifierColborateurById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="modifierColaborateur">
       <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierColaborateur" message="tns:IUColaborateur_modifierColaborateur_InputMessage" />
@@ -98,11 +221,97 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/ExporterColaborateur" message="tns:IUColaborateur_ExporterColaborateur_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/ExporterColaborateurResponse" message="tns:IUColaborateur_ExporterColaborateur_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="sendMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/sendMail" message="tns:IUColaborateur_sendMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/sendMailResponse" message="tns:IUColaborateur_sendMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ajouterDemandeVisa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/ajouterDemandeVisa" message="tns:IUColaborateur_ajouterDemandeVisa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/ajouterDemandeVisaResponse" message="tns:IUColaborateur_ajouterDemandeVisa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="afficherVisa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/afficherVisa" message="tns:IUColaborateur_afficherVisa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/afficherVisaResponse" message="tns:IUColaborateur_afficherVisa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDemandeVisaConfirmer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/supprimerDemandeVisaConfirmer" message="tns:IUColaborateur_supprimerDemandeVisaConfirmer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/supprimerDemandeVisaConfirmerResponse" message="tns:IUColaborateur_supprimerDemandeVisaConfirmer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDemandeVisa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/supprimerDemandeVisa" message="tns:IUColaborateur_supprimerDemandeVisa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/supprimerDemandeVisaResponse" message="tns:IUColaborateur_supprimerDemandeVisa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="detaillerDemandeVisa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/detaillerDemandeVisa" message="tns:IUColaborateur_detaillerDemandeVisa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/detaillerDemandeVisaResponse" message="tns:IUColaborateur_detaillerDemandeVisa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modifierDemandeVisaById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierDemandeVisaById" message="tns:IUColaborateur_modifierDemandeVisaById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/modifierDemandeVisaByIdResponse" message="tns:IUColaborateur_modifierDemandeVisaById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modifierDemandeVisa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierDemandeVisa" message="tns:IUColaborateur_modifierDemandeVisa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/modifierDemandeVisaResponse" message="tns:IUColaborateur_modifierDemandeVisa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ajouterDeplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/ajouterDeplacement" message="tns:IUColaborateur_ajouterDeplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/ajouterDeplacementResponse" message="tns:IUColaborateur_ajouterDeplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="afficherDeplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/afficherDeplacement" message="tns:IUColaborateur_afficherDeplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/afficherDeplacementResponse" message="tns:IUColaborateur_afficherDeplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDeplacementConfirmer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/supprimerDeplacementConfirmer" message="tns:IUColaborateur_supprimerDeplacementConfirmer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/supprimerDeplacementConfirmerResponse" message="tns:IUColaborateur_supprimerDeplacementConfirmer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDeplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/supprimerDeplacement" message="tns:IUColaborateur_supprimerDeplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/supprimerDeplacementResponse" message="tns:IUColaborateur_supprimerDeplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="detaillerDeplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/detaillerDeplacement" message="tns:IUColaborateur_detaillerDeplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/detaillerDeplacementResponse" message="tns:IUColaborateur_detaillerDeplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modifierDeplacementById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierDeplacementById" message="tns:IUColaborateur_modifierDeplacementById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/modifierDeplacementByIdResponse" message="tns:IUColaborateur_modifierDeplacementById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modifierDeplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/modifierDeplacement" message="tns:IUColaborateur_modifierDeplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/modifierDeplacementResponse" message="tns:IUColaborateur_modifierDeplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProposeColaborateur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/ProposeColaborateur" message="tns:IUColaborateur_ProposeColaborateur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/ProposeColaborateurResponse" message="tns:IUColaborateur_ProposeColaborateur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeplacements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUColaborateur/getDeplacements" message="tns:IUColaborateur_getDeplacements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUColaborateur/getDeplacementsResponse" message="tns:IUColaborateur_getDeplacements_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUColaborateur" type="tns:IUColaborateur">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ajouterColab">
       <soap:operation soapAction="http://tempuri.org/IUColaborateur/ajouterColab" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getColaborateurs">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/getColaborateurs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getColaborateur">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/getColaborateur" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -146,8 +355,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="modifierColborateur">
-      <soap:operation soapAction="http://tempuri.org/IUColaborateur/modifierColborateur" style="document" />
+    <wsdl:operation name="modifierColborateurById">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/modifierColborateurById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -175,6 +384,159 @@
     </wsdl:operation>
     <wsdl:operation name="ExporterColaborateur">
       <soap:operation soapAction="http://tempuri.org/IUColaborateur/ExporterColaborateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMail">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/sendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ajouterDemandeVisa">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/ajouterDemandeVisa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="afficherVisa">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/afficherVisa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDemandeVisaConfirmer">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/supprimerDemandeVisaConfirmer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDemandeVisa">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/supprimerDemandeVisa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detaillerDemandeVisa">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/detaillerDemandeVisa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifierDemandeVisaById">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/modifierDemandeVisaById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifierDemandeVisa">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/modifierDemandeVisa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ajouterDeplacement">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/ajouterDeplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="afficherDeplacement">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/afficherDeplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDeplacementConfirmer">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/supprimerDeplacementConfirmer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDeplacement">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/supprimerDeplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detaillerDeplacement">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/detaillerDeplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifierDeplacementById">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/modifierDeplacementById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifierDeplacement">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/modifierDeplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProposeColaborateur">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/ProposeColaborateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeplacements">
+      <soap:operation soapAction="http://tempuri.org/IUColaborateur/getDeplacements" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

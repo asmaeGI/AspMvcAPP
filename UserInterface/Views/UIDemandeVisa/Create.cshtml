@@ -1,0 +1,104 @@
+﻿@model Entities.DemandeVisa
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>DemandeVisa</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("Date", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control datepicker", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Statut", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Status, new SelectList(new List<Object>{
+                                                                                           new { value = "EnCours" , text = "En cours"  },
+                                                                                           new { value = "Acceptee" , text = "Acceptée" },
+                                                                                           new { value = "Refusee" , text = "Refusée" },
+                                                                                           },
+                                                                                           "value", "text"),
+                                                                          new { @class = "form-control", onchange = "test()", id = "drop", autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("date Validite Visa", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateValiditeVisa, ViewBag.Readonly ? (object)new { htmlAttributes = new { @readonly = "readonly", @class = "form-control datepicker", id = "dateD", autocomplete = "off" } } : new { htmlAttributes = new { @class = "form-control datepicker", id = "dateD", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.DateValiditeVisa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("date Fin Visa", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateFinVisa, ViewBag.Readonly ? (object)new { htmlAttributes = new { @readonly = "readonly", @class = "form-control datepicker", id = "dateF", autocomplete = "off" } } : new { htmlAttributes = new { @class = "form-control datepicker", id = "dateF", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.DateFinVisa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Observations", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Observation, ViewBag.ReadonlyObservation ? (object)new { @readonly = "readonly", @class = "form-control ", id = "observation" } : new { @class = "form-control", id = "observation" })
+                @Html.ValidationMessageFor(model => model.Observation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Collaborateur", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdC", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<span id="span1"></span>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    function test() {
+       var a = document.getElementById("drop");
+       if ((a.options[a.selectedIndex].value)=="Refusee") {
+          document.getElementById("dateD").value = null;
+          document.getElementById("dateF").value = null;
+          document.getElementById("dateD").readOnly =true;
+          document.getElementById("dateF").readOnly=true;
+          document.getElementById("observation").readOnly =false;
+
+      }
+       if ((a.options[a.selectedIndex].value) == "Acceptee" ) {
+           document.getElementById("observation").value = null;
+           document.getElementById("observation").readOnly = true;
+           document.getElementById("dateD").readOnly = false;
+           document.getElementById("dateF").readOnly = false;
+       }
+       if ((a.options[a.selectedIndex].value) == "EnCours") {
+           document.getElementById("observation").value = null;
+           document.getElementById("observation").readOnly = true;
+           document.getElementById("dateD").value = null;
+           document.getElementById("dateF").value = null;
+           document.getElementById("dateD").readOnly = true;
+           document.getElementById("dateF").readOnly = true;
+       }
+    }
+</script>

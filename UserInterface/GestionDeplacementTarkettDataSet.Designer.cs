@@ -10,6 +10,8 @@
 
 #pragma warning disable 1591
 
+using System.Runtime.Serialization;
+
 namespace UserInterface {
     
     
@@ -25,11 +27,16 @@ namespace UserInterface {
     public partial class GestionDeplacementTarkettDataSet : global::System.Data.DataSet {
         
         private ColaborateurDataTable tableColaborateur;
-        
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            base.GetObjectData(info, context);
+
+        }
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        
         public GestionDeplacementTarkettDataSet() {
             this.BeginInit();
             this.InitClass();
@@ -309,13 +316,18 @@ namespace UserInterface {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+           
             public ColaborateurDataTable() {
                 this.TableName = "Colaborateur";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
             }
-            
+            public override void GetObjectData(SerializationInfo info, StreamingContext context)
+            {
+                base.GetObjectData(info, context);
+
+            }
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal ColaborateurDataTable(global::System.Data.DataTable table) {

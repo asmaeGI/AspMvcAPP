@@ -1,11 +1,14 @@
 namespace Entities
 {
+    using Foolproof;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     [Table("Colaborateur")]
     public partial class Colaborateur
     {
@@ -13,67 +16,73 @@ namespace Entities
         public Colaborateur()
         {
             DemandeVisa = new HashSet<DemandeVisa>();
-            Deplacement = new HashSet<Deplacement>();
         }
-        
-        public int Id { get; set; }
-
+        [DataMember]
+        [Key]
+        public int IdCol { get; set; }
+        [DataMember]
         [StringLength(50)]
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
+        [RequiredIf("Role", "Colaborateur", ErrorMessage = "Ce champ est obligatoire")]
         public string Nom { get; set; }
-
+        [DataMember]
+        [RequiredIf("Role", "Colaborateur", ErrorMessage = "Ce champ est obligatoire")]
         [StringLength(50)]
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public string Prenom { get; set; }
-
-        [StringLength(50)]
+        [DataMember]
         [Required(ErrorMessage = "Ce champ est obligatoire")]
+        [StringLength(50)]
+        public string Role { get; set; }
+        [DataMember]
+        [RequiredIf("Role", "Colaborateur", ErrorMessage = "Ce champ est obligatoire")]
+        [StringLength(50)]
         public string Cin { get; set; }
-
-        [StringLength(50)]
-        [EmailAddress(ErrorMessage = "Format d'adress mail est invalide")]
+        [DataMember]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [Required(ErrorMessage = "Ce champ est obligatoire")]
+        [StringLength(50)]
         public string Email { get; set; }
-
+        [DataMember]
+        [RequiredIf("Role", "Colaborateur", ErrorMessage = "Ce champ est obligatoire")]
         [StringLength(50)]
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public string Poste { get; set; }
-
+        [DataMember]
+        [RequiredIf("Role", "Colaborateur", ErrorMessage = "Ce champ est obligatoire")]
         [StringLength(50)]
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public string Equipe { get; set; }
-
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
+        [DataMember]
+        [RequiredIf("Role", "Colaborateur", ErrorMessage = "Ce champ est obligatoire")]
         public int? NombreDeplacement { get; set; }
-
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
+        [DataMember]
+        [RequiredIf("Role", "Colaborateur", ErrorMessage = "Ce champ est obligatoire")]
         public int? Anciennete { get; set; }
-
+        [DataMember]
         [Column(TypeName = "date")]
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public DateTime? DateValiditeVisa { get; set; }
-
+        [DataMember]
         [Column(TypeName = "date")]
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public DateTime? DateFinVisa { get; set; }
-
+        [DataMember]
+        [RequiredIf("Role", "Colaborateur", ErrorMessage = "Ce champ est obligatoire")]
         [StringLength(50)]
-        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public string Sexe { get; set; }
-
-        [StringLength(50)]
+        [DataMember]
         [Required(ErrorMessage = "Ce champ est obligatoire")]
+        [StringLength(50)]
         public string Login { get; set; }
-
-        [StringLength(50)]
+        [DataMember]
         [Required(ErrorMessage = "Ce champ est obligatoire")]
-
+        [StringLength(50)]
         public string Password { get; set; }
+        [DataMember]
+        [Column(TypeName = "date")]
+        public DateTime? DateConnection { get; set; }
+        [DataMember]
+
+        public int? IdD { get; set; }
+
+        public virtual Deplacement Deplacement { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DemandeVisa> DemandeVisa { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Deplacement> Deplacement { get; set; }
     }
 }
